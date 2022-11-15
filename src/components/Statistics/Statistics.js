@@ -1,15 +1,26 @@
 import { Component } from 'react';
+import { FeedbackTextItem } from './Statistics.styled';
+import PropTypes from 'prop-types';
 
 export class Statistics extends Component {
   render() {
     return (
       <ul>
-        <li>Good: {this.props.good}</li>
-        <li>Neutral: {this.props.neutral}</li>
-        <li>Bad: {this.props.bad}</li>
-        <li>Total: {this.props.total}</li>
-        <li>Positive fedback: {this.props.positivePercentage}</li>
+        <FeedbackTextItem>Good: {this.props.good}</FeedbackTextItem>
+        <FeedbackTextItem>Neutral: {this.props.neutral}</FeedbackTextItem>
+        <FeedbackTextItem>Bad: {this.props.bad}</FeedbackTextItem>
+        <FeedbackTextItem>Total: {this.props.total}</FeedbackTextItem>
+        <FeedbackTextItem>
+          Positive fedback: {this.props.positivePercentage}%
+        </FeedbackTextItem>
       </ul>
     );
   }
 }
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.string.isRequired,
+};
